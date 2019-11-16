@@ -237,19 +237,20 @@
         <h3 class="title is-5 has-text-weight-normal">评论</h3>
         
 <div id="comment-container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
 <script>
-	var gitment = new Gitment({
-		id: 'baa72022c8ddd765b6953071f2232269',
-		owner: 'roger-wyq',
-		repo: 'roger-wyq.github.com',
-		oauth: {
-			client_id: 'cd83c0c317b6a24ca8d4',
-			client_secret: 'cdbd1cf50ad15016da73b102b70a1553d414c3e9',
-		},
-	})
-	gitment.render('comment-container')
+    var gitalk = new Gitalk({
+        clientID: '9e93290747b3ddcef54b',
+        clientSecret: '43c8e9ab8edaf50c3e4107e2be70fdf2ce71a294',
+        id: 'baa72022c8ddd765b6953071f2232269',
+        repo: 'roger-wyq.github.com',
+        owner: 'roger-wyq',
+        admin: "roger-wyq",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
 </script>
 
     </div>
