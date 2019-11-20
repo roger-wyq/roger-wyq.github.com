@@ -10,16 +10,16 @@
 <title>堆排序 - Roger的博客</title>
 
 
-    <meta name="description" content="什么是堆 堆是计算机科学中的一种特别的树状数据结构。若是满足以下特性，即可称为堆：“给定堆中任意节点P和C，若P是C的母节点，那么P的值会小于等于C的值”。若母节点的值恒小于等于子节点的值，此堆称为最小堆；反之，若母节点的值恒大于等于子节点的值，此堆称为最大堆. ——引用自维基百科  在堆排序中，我们可以将堆看作是父节点的值恒大于等于（或小于等于）其子节点值的完全二叉树。 如何排序只要我们可以维护">
+    <meta name="description" content="什么是堆 堆是计算机科学中的一种特别的树状数据结构。若是满足以下特性，即可称为堆：“给定堆中任意节点P和C，若P是C的母节点，那么P的值会小于等于C的值”。若母节点的值恒小于等于子节点的值，此堆称为最小堆；反之，若母节点的值恒大于等于子节点的值，此堆称为最大堆. ——引用自维基百科  在堆排序中，我们可以将堆看作是父节点的值恒大于等于（或小于等于）其子节点值的完全二叉树。 如何排序">
 <meta name="keywords" content="算法,排序,堆排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆排序">
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2019&#x2F;11&#x2F;20&#x2F;Heapsort&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
-<meta property="og:description" content="什么是堆 堆是计算机科学中的一种特别的树状数据结构。若是满足以下特性，即可称为堆：“给定堆中任意节点P和C，若P是C的母节点，那么P的值会小于等于C的值”。若母节点的值恒小于等于子节点的值，此堆称为最小堆；反之，若母节点的值恒大于等于子节点的值，此堆称为最大堆. ——引用自维基百科  在堆排序中，我们可以将堆看作是父节点的值恒大于等于（或小于等于）其子节点值的完全二叉树。 如何排序只要我们可以维护">
+<meta property="og:description" content="什么是堆 堆是计算机科学中的一种特别的树状数据结构。若是满足以下特性，即可称为堆：“给定堆中任意节点P和C，若P是C的母节点，那么P的值会小于等于C的值”。若母节点的值恒小于等于子节点的值，此堆称为最小堆；反之，若母节点的值恒大于等于子节点的值，此堆称为最大堆. ——引用自维基百科  在堆排序中，我们可以将堆看作是父节点的值恒大于等于（或小于等于）其子节点值的完全二叉树。 如何排序">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-11-20T01:40:14.257Z">
+<meta property="og:updated_time" content="2019-11-20T01:49:26.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -147,7 +147,9 @@
 <p>堆是计算机科学中的一种特别的树状数据结构。若是满足以下特性，即可称为堆：“给定堆中任意节点P和C，若P是C的母节点，那么P的值会小于等于C的值”。若母节点的值恒小于等于子节点的值，此堆称为最小堆；反之，若母节点的值恒大于等于子节点的值，此堆称为最大堆. ——引用自<a href="https://zh.wikipedia.org/zh-cn/%E5%A0%86%E7%A9%8D" target="_blank" rel="noopener">维基百科</a></p>
 </blockquote>
 <p>在堆排序中，我们可以将堆看作是父节点的值恒大于等于（或小于等于）其子节点值的完全二叉树。</p>
-<h3 id="如何排序"><a href="#如何排序" class="headerlink" title="如何排序"></a><strong>如何排序</strong></h3><p>只要我们可以维护上文中这样一个堆，那么我们只要每次取堆顶元素，最终得到的序列一定是有序的。</p>
+<h3 id="如何排序"><a href="#如何排序" class="headerlink" title="如何排序"></a><strong>如何排序</strong></h3><a id="more"></a>
+
+<p>只要我们可以维护上文中这样一个堆，那么我们只要每次取堆顶元素，最终得到的序列一定是有序的。</p>
 <h4 id="维护堆"><a href="#维护堆" class="headerlink" title="维护堆"></a><strong>维护堆</strong></h4><p>完全二叉树的几条性质：<br>1.第i个结点的左儿子是第2*i+1个结点(根基结点从0开始)<br>2.第一个非叶结点点的位置为len/2-1(len为总的结点个数)</p>
 <p>只需要从第一个非叶节点内开始，到根节点（即堆顶）使每个节点及其子节点满足堆得性质即可维护一个堆。</p>
 <h5 id="图解："><a href="#图解：" class="headerlink" title="图解："></a><strong>图解</strong>：</h5><p><img src="https://s2.ax1x.com/2019/11/20/MRqV2T.jpg" alt="图片来自知乎，侵删"></p>
