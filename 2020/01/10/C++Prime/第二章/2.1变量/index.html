@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>2.2 变量 - Roger的博客</title>
+
+
+    <meta name="description" content="变量提供一个具名的，可供程序操作的存储空间。">
+<meta name="keywords" content="C++,C++Primer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.2 变量">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;10&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%BA%8C%E7%AB%A0&#x2F;2.1%E5%8F%98%E9%87%8F&#x2F;index.html">
+<meta property="og:site_name" content="Roger的博客">
+<meta property="og:description" content="变量提供一个具名的，可供程序操作的存储空间。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2020-01-10T11:58:15.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/avatar.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="2.2 变量" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-10T11:16:00.000Z">2020-01-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                2.2 变量
+            
+        </h1>
+        <div class="content">
+            <p><strong>变量</strong>提供一个具名的，可供程序操作的存储空间。</p>
+<a id="more"></a>
+
+<h3 id="2-2-1-变量定义"><a href="#2-2-1-变量定义" class="headerlink" title="2.2.1 变量定义"></a><strong>2.2.1 变量定义</strong></h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><strong>初始化</strong></h4><p>当对象在创建时获得一个特定的值，我们说这个对象被初始化了。在C++中，初始化和赋值是两种完全不同的操作。<strong>初始化不是赋值，初始化的含义是创建变量时赋予其一个初始值，而赋值的含义是把对象的当前值擦除，而以一个新值来代替。</strong></p>
+<h4 id="列表初始化"><a href="#列表初始化" class="headerlink" title="列表初始化"></a><strong>列表初始化</strong></h4><p>C++语言定义了初始化的好几种不同形式：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> units_sold = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> units_sold = &#123;<span class="hljs-number">0</span>&#125;;</span><br><span class="line"><span class="hljs-keyword">int</span> units_sold&#123;<span class="hljs-number">0</span>&#125;;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">units_sold</span><span class="hljs-params">(<span class="hljs-number">0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-2-变量声明和定义的关系"><a href="#2-2-2-变量声明和定义的关系" class="headerlink" title="2.2.2 变量声明和定义的关系"></a><strong>2.2.2 变量声明和定义的关系</strong></h3><p><strong>声明</strong>使得名字为程序所知，一个文件如果想要使用别处定义的的名字则必须包含对那个名字的声明。</p>
+<p><strong>定义</strong> 负责创建于名字关联的实体。</p>
+<p>如果想声明一个变量而非定义它，就在变量名前面加上关键字<code>extern</code>, 而且不要显式地初始化：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> i;             <span class="hljs-comment">//声明i而非定义i</span></span><br><span class="line"><span class="hljs-keyword">int</span> j;					  <span class="hljs-comment">//声明并定义j</span></span><br><span class="line"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>;  <span class="hljs-comment">//定义</span></span><br></pre></td></tr></table></figure>
+
+<p><em>在函数体内部，如果试图初始化一个由<code>extern</code>关键字标记的变量，将引发错误。</em></p>
+<p><em>变量能且只能被定义一次，但可以被多次声明</em></p>
+<h3 id="2-2-3-标识符"><a href="#2-2-3-标识符" class="headerlink" title="2.2.3 标识符"></a>2.2.3 标识符</h3><p>C++的标识符由数字，字母和下划线组成。必须以下划线或者字母开头。</p>
+<p>下图中的C++关键字和操作符代替名不能被用作操作符。</p>
+<p>用户自定义的标识符不能连续出现两个下划线，也不能以下划线紧跟大写字母开头。定义在函数体外的标识符不能以下划线开头。</p>
+<p><a href="https://imgchr.com/i/l4EvIe" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/01/10/l4EvIe.md.jpg" alt="l4EvIe.md.jpg"></a></p>
+<center>C++中的关键字</center>
+
+<p><a href="https://imgchr.com/i/l4VMMq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/01/10/l4VMMq.md.jpg" alt="l4VMMq.md.jpg"></a></p>
+<center>C++操作符代替名</center>
+
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C++</a>, <a class="has-link-grey -link" href="/tags/C-Primer/" rel="tag">C++Primer</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/reward/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/reward/wechat.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/10/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.1%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/">
+                <span class="level-item">2.1 基本内置类型</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '9e93290747b3ddcef54b',
+        clientSecret: '43c8e9ab8edaf50c3e4107e2be70fdf2ce71a294',
+        id: '5e7d324634ccc229d2d3d7685d8f5cce',
+        repo: 'roger-wyq.github.com',
+        owner: 'roger-wyq',
+        admin: "roger-wyq",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#2-2-1-变量定义">
+        <span class="has-mr-6">1</span>
+        <span>2.2.1 变量定义</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#初始化">
+        <span class="has-mr-6">1.1</span>
+        <span>初始化</span>
+        </a></li><li>
+        <a class="is-flex" href="#列表初始化">
+        <span class="has-mr-6">1.2</span>
+        <span>列表初始化</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#2-2-2-变量声明和定义的关系">
+        <span class="has-mr-6">2</span>
+        <span>2.2.2 变量声明和定义的关系</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-2-3-标识符">
+        <span class="has-mr-6">3</span>
+        <span>2.2.3 标识符</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="2.2 变量" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Roger&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
