@@ -19,7 +19,7 @@
 <meta property="og:description" content="const是一种类型修饰符，用于说明永不改变的对象。const对象一旦改变就无法再赋新值，所以必须初始化。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-01-21T10:55:45.511Z">
+<meta property="og:updated_time" content="2020-01-21T10:58:34.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -146,19 +146,19 @@
             <p><strong>const</strong>是一种类型修饰符，用于说明永不改变的对象。const对象一旦改变就无法再赋新值，所以必须初始化。</p>
 <a id="more"></a>
 
-<h4 id="const对象的有效范围"><a href="#const对象的有效范围" class="headerlink" title="const对象的有效范围"></a>const对象的有效范围</h4><p>默认情况下，const对象仅在文件内有效。如果想在多个文件之间共享const对象，必须在变量定义之前添加extern关键字。</p>
-<h3 id="2-4-1-const引用"><a href="#2-4-1-const引用" class="headerlink" title="2.4.1 const引用"></a>2.4.1 const引用</h3><p>把引用绑定到const对象上，称之为<strong>对常量的引用</strong>，对常量的引用不能用作修改它所绑定对象的值。引用常量的引用也必须是常量引用，即用const修饰。</p>
+<h4 id="const对象的有效范围"><a href="#const对象的有效范围" class="headerlink" title="const对象的有效范围"></a><strong>const对象的有效范围</strong></h4><p>默认情况下，const对象仅在文件内有效。如果想在多个文件之间共享const对象，必须在变量定义之前添加extern关键字。</p>
+<h3 id="2-4-1-const引用"><a href="#2-4-1-const引用" class="headerlink" title="2.4.1 const引用"></a><strong>2.4.1 const引用</strong></h3><p>把引用绑定到const对象上，称之为<strong>对常量的引用</strong>，对常量的引用不能用作修改它所绑定对象的值。引用常量的引用也必须是常量引用，即用const修饰。</p>
 <figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a = <span class="hljs-number">128</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> &amp;b = a;       <span class="hljs-comment">// 错误</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;c = a; <span class="hljs-comment">// 正确</span></span><br></pre></td></tr></table></figure>
 
 <p> <strong>C++允许一个常量引用绑定到非常量的对象，字面值，甚至是一个一般表达式</strong>。这是引用的特殊情况之一，一般情况下，引用类型必须与其所引用对象的类型一致。</p>
-<h3 id="2-4-2-指针和const"><a href="#2-4-2-指针和const" class="headerlink" title="2.4.2 指针和const"></a>2.4.2 指针和const</h3><p>可以让指针指向常量，指向常量的指针不能用于改变其所指对象的值。而想要存放常量对象的地址，只能使用指向常量的指针，即用const修饰的指针。</p>
+<h3 id="2-4-2-指针和const"><a href="#2-4-2-指针和const" class="headerlink" title="2.4.2 指针和const"></a><strong>2.4.2 指针和const</strong></h3><p>可以让指针指向常量，指向常量的指针不能用于改变其所指对象的值。而想要存放常量对象的地址，只能使用指向常量的指针，即用const修饰的指针。</p>
 <figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>;</span><br><span class="line"><span class="hljs-keyword">double</span> *ptr = &amp;pi;        <span class="hljs-comment">// 错误</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *cptr = &amp;pi  <span class="hljs-comment">// 正确</span></span><br><span class="line">*cptr = <span class="hljs-number">42</span>;               <span class="hljs-comment">// 错误</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="const指针"><a href="#const指针" class="headerlink" title="const指针"></a>const指针</h4><p>指针本身也可是是一个常量，即存放在指针中的那个地址不变。因此，const指针(即常量指针)必须初始化。</p>
 <figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> errNumb = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> curNumb = &amp;errNumb;     <span class="hljs-comment">// curNumb将一直指向errNumb;</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *<span class="hljs-keyword">const</span> pip = &amp;pi;     <span class="hljs-comment">// pip是一个指向常量对象的常量指针。</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-4-3-顶层const"><a href="#2-4-3-顶层const" class="headerlink" title="2.4.3 顶层const"></a>2.4.3 顶层const</h3><p>对于指针，用<strong>顶层const</strong>表示指针本身是个常量，用<strong>底层const</strong>表示指针所指对象是一个常量。</p>
-<h3 id="2-4-4-constexpr和常量表达式"><a href="#2-4-4-constexpr和常量表达式" class="headerlink" title="2.4.4 constexpr和常量表达式"></a>2.4.4 constexpr和常量表达式</h3><p><strong>常量表达式</strong>是指值不会改变并且在编译过程就能得到计算结果的表达式。</p>
+<h3 id="2-4-3-顶层const"><a href="#2-4-3-顶层const" class="headerlink" title="2.4.3 顶层const"></a><strong>2.4.3 顶层const</strong></h3><p>对于指针，用<strong>顶层const</strong>表示指针本身是个常量，用<strong>底层const</strong>表示指针所指对象是一个常量。</p>
+<h3 id="2-4-4-constexpr和常量表达式"><a href="#2-4-4-constexpr和常量表达式" class="headerlink" title="2.4.4 constexpr和常量表达式"></a><strong>2.4.4 constexpr和常量表达式</strong></h3><p><strong>常量表达式</strong>是指值不会改变并且在编译过程就能得到计算结果的表达式。</p>
 <figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> max_files = <span class="hljs-number">20</span>;        <span class="hljs-comment">// max_files是常量表达式</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> limit = max_files + <span class="hljs-number">1</span>; <span class="hljs-comment">// limit是常量表达式</span></span><br><span class="line"><span class="hljs-keyword">int</span> staff_size = <span class="hljs-number">27</span>;             <span class="hljs-comment">// staff_szie不是常量表达式</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sz = get_size();       <span class="hljs-comment">// sz不是常量表达式</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="constexpr变量"><a href="#constexpr变量" class="headerlink" title="constexpr变量"></a>constexpr变量</h4><p>对于不能确定初始值是不是常量表达式的情况，C++11新标准规定，允许将变量声明为constexpr类型以便由编译器来验证变量的初始值是否是一个常量表达式。</p>
