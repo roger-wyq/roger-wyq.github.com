@@ -7,19 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>2.4 const限定符 - Roger的博客</title>
+<title>2.4 处理类型 - Roger的博客</title>
 
 
-    <meta name="description" content="const是一种类型修饰符，用于说明永不改变的对象。const对象一旦改变就无法再赋新值，所以必须初始化。">
+    <meta name="description" content="2.5.1 类型别名类型别名是一个名字，它是某种类型的同义词。">
 <meta name="keywords" content="C++,C++Primer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2.4 const限定符">
-<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;21&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%BA%8C%E7%AB%A0&#x2F;2.4const%E9%99%90%E5%AE%9A%E7%AC%A6&#x2F;index.html">
+<meta property="og:title" content="2.4 处理类型">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;22&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%BA%8C%E7%AB%A0&#x2F;2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
-<meta property="og:description" content="const是一种类型修饰符，用于说明永不改变的对象。const对象一旦改变就无法再赋新值，所以必须初始化。">
+<meta property="og:description" content="2.5.1 类型别名类型别名是一个名字，它是某种类型的同义词。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-01-21T10:58:34.533Z">
+<meta property="og:updated_time" content="2020-01-22T05:57:56.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -77,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="2.4 const限定符" height="28">
+                <img src="/images/logo.svg" alt="2.4 处理类型" height="28">
             
             </a>
         </div>
@@ -126,7 +126,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-21T00:03:00.000Z">2020-01-21</time>
+                <time class="level-item has-text-grey" datetime="2020-01-22T00:58:00.000Z">2020-01-22</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
@@ -139,29 +139,34 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                2.4 const限定符
+                2.4 处理类型
             
         </h1>
         <div class="content">
-            <p><strong>const</strong>是一种类型修饰符，用于说明永不改变的对象。const对象一旦改变就无法再赋新值，所以必须初始化。</p>
+            <h3 id="2-5-1-类型别名"><a href="#2-5-1-类型别名" class="headerlink" title="2.5.1 类型别名"></a><strong>2.5.1 类型别名</strong></h3><p><strong>类型别名</strong>是一个名字，它是某种类型的同义词。</p>
 <a id="more"></a>
 
-<h4 id="const对象的有效范围"><a href="#const对象的有效范围" class="headerlink" title="const对象的有效范围"></a><strong>const对象的有效范围</strong></h4><p>默认情况下，const对象仅在文件内有效。如果想在多个文件之间共享const对象，必须在变量定义之前添加extern关键字。</p>
-<h3 id="2-4-1-const引用"><a href="#2-4-1-const引用" class="headerlink" title="2.4.1 const引用"></a><strong>2.4.1 const引用</strong></h3><p>把引用绑定到const对象上，称之为<strong>对常量的引用</strong>，对常量的引用不能用作修改它所绑定对象的值。引用常量的引用也必须是常量引用，即用const修饰。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a = <span class="hljs-number">128</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> &amp;b = a;       <span class="hljs-comment">// 错误</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;c = a; <span class="hljs-comment">// 正确</span></span><br></pre></td></tr></table></figure>
+<p>有两种方法 用于定义类型别名：</p>
+<p><strong>关键字typedef</strong></p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">double</span> wages;		<span class="hljs-comment">// wages是double的同义词；</span></span><br><span class="line"><span class="hljs-keyword">typedef</span> wages base, *p;     <span class="hljs-comment">// base是double的同义词，p是double*的同义词</span></span><br></pre></td></tr></table></figure>
 
-<p> <strong>C++允许一个常量引用绑定到非常量的对象，字面值，甚至是一个一般表达式</strong>。这是引用的特殊情况之一，一般情况下，引用类型必须与其所引用对象的类型一致。</p>
-<h3 id="2-4-2-指针和const"><a href="#2-4-2-指针和const" class="headerlink" title="2.4.2 指针和const"></a><strong>2.4.2 指针和const</strong></h3><p>可以让指针指向常量，指向常量的指针不能用于改变其所指对象的值。而想要存放常量对象的地址，只能使用指向常量的指针，即用const修饰的指针。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>;</span><br><span class="line"><span class="hljs-keyword">double</span> *ptr = &amp;pi;        <span class="hljs-comment">// 错误</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *cptr = &amp;pi  <span class="hljs-comment">// 正确</span></span><br><span class="line">*cptr = <span class="hljs-number">42</span>;               <span class="hljs-comment">// 错误</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用using别名声明</strong></p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">using</span> SI = Sales_itme;      <span class="hljs-comment">// SI是Sales_itme的同义词</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="const指针"><a href="#const指针" class="headerlink" title="const指针"></a>const指针</h4><p>指针本身也可是是一个常量，即存放在指针中的那个地址不变。因此，const指针(即常量指针)必须初始化。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> errNumb = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> curNumb = &amp;errNumb;     <span class="hljs-comment">// curNumb将一直指向errNumb;</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> pi = <span class="hljs-number">3.14</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">double</span> *<span class="hljs-keyword">const</span> pip = &amp;pi;     <span class="hljs-comment">// pip是一个指向常量对象的常量指针。</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>注意：</em></strong></p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">char</span> *pstring;</span><br><span class="line"><span class="hljs-keyword">const</span> pstring cstr = <span class="hljs-number">0</span>;   <span class="hljs-comment">// cstr是指向char的常量指针</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *cstr = <span class="hljs-number">0</span>;     <span class="hljs-comment">// cstr是指向const char的指针</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-4-3-顶层const"><a href="#2-4-3-顶层const" class="headerlink" title="2.4.3 顶层const"></a><strong>2.4.3 顶层const</strong></h3><p>对于指针，用<strong>顶层const</strong>表示指针本身是个常量，用<strong>底层const</strong>表示指针所指对象是一个常量。</p>
-<h3 id="2-4-4-constexpr和常量表达式"><a href="#2-4-4-constexpr和常量表达式" class="headerlink" title="2.4.4 constexpr和常量表达式"></a><strong>2.4.4 constexpr和常量表达式</strong></h3><p><strong>常量表达式</strong>是指值不会改变并且在编译过程就能得到计算结果的表达式。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> max_files = <span class="hljs-number">20</span>;        <span class="hljs-comment">// max_files是常量表达式</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> limit = max_files + <span class="hljs-number">1</span>; <span class="hljs-comment">// limit是常量表达式</span></span><br><span class="line"><span class="hljs-keyword">int</span> staff_size = <span class="hljs-number">27</span>;             <span class="hljs-comment">// staff_szie不是常量表达式</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sz = get_size();       <span class="hljs-comment">// sz不是常量表达式</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-5-2-auto-类型说明符"><a href="#2-5-2-auto-类型说明符" class="headerlink" title="2.5.2 auto 类型说明符"></a><strong>2.5.2 auto 类型说明符</strong></h3><p>编程时常常需要把表达式的值赋给变量，但有时候我们不能清楚的知道表达式的类型。为了解决这个问题，C++11新标准引入了<strong>auto</strong>类型说明符，用它就能让编译器代替我们去分析表达式所属的类型。因此，auto定义的变量必须有初始值。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">auto</span> item = val1 + val2;  <span class="hljs-comment">// item的类型是根据val1和val2相加的结果推出来的</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="constexpr变量"><a href="#constexpr变量" class="headerlink" title="constexpr变量"></a>constexpr变量</h4><p>对于不能确定初始值是不是常量表达式的情况，C++11新标准规定，允许将变量声明为constexpr类型以便由编译器来验证变量的初始值是否是一个常量表达式。</p>
+<p>使用auto在一条语句中声明多个变量时，该语句中所有变量的初始基本类型都必须一样。</p>
+<h3 id="2-5-3-decltype-类型指示符"><a href="#2-5-3-decltype-类型指示符" class="headerlink" title="2.5.3 decltype 类型指示符"></a><strong>2.5.3 decltype 类型指示符</strong></h3><p>decltype的用法类似于函数，它的作用是选择并返回操作数的数据类型；</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">decltype</span>(f()) sum = x;  <span class="hljs-comment">// sum的类型就是函数f的返回值类型；</span></span><br></pre></td></tr></table></figure>
+
+<p>decltype处理顶层const和引用的方式与auto有些许不同，如果decltype使用的表达式是一个变量，则decltype返回该变量的类型（包括const和引用在内）。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> ci = <span class="hljs-number">0</span>, &amp;cj = ci;</span><br><span class="line"><span class="hljs-keyword">decltype</span>(ci) x = <span class="hljs-number">0</span>;			<span class="hljs-comment">// x的类型是const int;</span></span><br><span class="line"><span class="hljs-keyword">decltype</span>(cj) y = x;         <span class="hljs-comment">// y的类型是const int&amp;;</span></span><br><span class="line"><span class="hljs-keyword">decltype</span>(cj) z;             <span class="hljs-comment">// 错误，z是一个引用，必须初始化。</span></span><br></pre></td></tr></table></figure>
+
+<p>引用从来都作为其所指对象的同义词出现，只有在decltype处是一个例外。</p>
 
         </div>
         
@@ -219,17 +224,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/22/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">2.4 处理类型</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/10/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.3%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B/">
-                <span class="level-item">2.3 复合类型</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/21/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.4const%E9%99%90%E5%AE%9A%E7%AC%A6/">
+                <span class="level-item">2.4 const限定符</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -250,7 +248,7 @@
     var gitalk = new Gitalk({
         clientID: '9e93290747b3ddcef54b',
         clientSecret: '43c8e9ab8edaf50c3e4107e2be70fdf2ce71a294',
-        id: '5a43a16d841c399b1bb2ac8269f4fe35',
+        id: 'b114ff9ab92c4df396f57ea8131435c0',
         repo: 'roger-wyq.github.com',
         owner: 'roger-wyq',
         admin: "roger-wyq",
@@ -278,35 +276,19 @@
                 <h3 class="menu-label">
                     目录
                 </h3>
-                <ul class="menu-list"><ul class="menu-list"><li>
-        <a class="is-flex" href="#const对象的有效范围">
-        <span class="has-mr-6">1.1</span>
-        <span>const对象的有效范围</span>
-        </a></li></ul><li>
-        <a class="is-flex" href="#2-4-1-const引用">
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#2-5-1-类型别名">
+        <span class="has-mr-6">1</span>
+        <span>2.5.1 类型别名</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-5-2-auto-类型说明符">
         <span class="has-mr-6">2</span>
-        <span>2.4.1 const引用</span>
+        <span>2.5.2 auto 类型说明符</span>
         </a></li><li>
-        <a class="is-flex" href="#2-4-2-指针和const">
+        <a class="is-flex" href="#2-5-3-decltype-类型指示符">
         <span class="has-mr-6">3</span>
-        <span>2.4.2 指针和const</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#const指针">
-        <span class="has-mr-6">3.1</span>
-        <span>const指针</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#2-4-3-顶层const">
-        <span class="has-mr-6">4</span>
-        <span>2.4.3 顶层const</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-4-4-constexpr和常量表达式">
-        <span class="has-mr-6">5</span>
-        <span>2.4.4 constexpr和常量表达式</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#constexpr变量">
-        <span class="has-mr-6">5.1</span>
-        <span>constexpr变量</span>
-        </a></li></ul></li></ul>
+        <span>2.5.3 decltype 类型指示符</span>
+        </a></li></ul>
             </div>
         </div>
     </div>
@@ -329,7 +311,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="2.4 const限定符" height="28">
+                    <img src="/images/logo.svg" alt="2.4 处理类型" height="28">
                 
                 </a>
                 <p class="is-size-7">
