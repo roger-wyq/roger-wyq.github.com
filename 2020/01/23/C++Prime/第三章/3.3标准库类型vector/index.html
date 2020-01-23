@@ -10,16 +10,16 @@
 <title>3.3 标准库类型vector - Roger的博客</title>
 
 
-    <meta name="description" content="标准库类型vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。 C++语言既有类模板，也有函数模板。vector是一个类模板，而非类型，由vector生成的类型必须包含vector中元素的类型，例如vector&amp;lt;int&amp;gt; vector能容纳绝大多数类型作为其元素，但是因为引用不是对象，所以不存在包含引用的vector。vect">
+    <meta name="description" content="标准库类型vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。">
 <meta name="keywords" content="C++,C++Primer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3.3 标准库类型vector">
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;23&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%B8%89%E7%AB%A0&#x2F;3.3%E6%A0%87%E5%87%86%E5%BA%93%E7%B1%BB%E5%9E%8Bvector&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
-<meta property="og:description" content="标准库类型vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。 C++语言既有类模板，也有函数模板。vector是一个类模板，而非类型，由vector生成的类型必须包含vector中元素的类型，例如vector&amp;lt;int&amp;gt; vector能容纳绝大多数类型作为其元素，但是因为引用不是对象，所以不存在包含引用的vector。vect">
+<meta property="og:description" content="标准库类型vector表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-01-23T14:04:11.879Z">
+<meta property="og:updated_time" content="2020-01-23T14:05:20.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -144,6 +144,8 @@
         </h1>
         <div class="content">
             <p>标准库类型<strong>vector</strong>表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。</p>
+<a id="more"></a>
+
 <p>C++语言既有类模板，也有函数模板。<strong>vector是一个类模板，而非类型，由vector生成的类型必须包含vector中元素的类型，例如<code>vector&lt;int&gt;</code></strong></p>
 <p>vector能容纳绝大多数类型作为其元素，但是因为引用不是对象，所以<strong>不存在包含引用的vector</strong>。vector的元素也可以是vector，但在早期版本的C++标准中，必须在外层vector对象的右尖括号和其元素类型之间添加一个空格，即<code>vector&lt;vector&lt;int&gt; &gt;</code>;</p>
 <h3 id="3-3-1-定义和初始化vector对象"><a href="#3-3-1-定义和初始化vector对象" class="headerlink" title="3.3.1 定义和初始化vector对象"></a><strong>3.3.1 定义和初始化vector对象</strong></h3><p><img src="https://s2.ax1x.com/2020/01/23/1Vtlk9.jpg" alt></p>

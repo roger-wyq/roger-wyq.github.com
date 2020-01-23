@@ -150,23 +150,16 @@
         </h1>
         <div class="content">
             <p>标准库类型<strong>vector</strong>表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。</p>
-<p>C++语言既有类模板，也有函数模板。<strong>vector是一个类模板，而非类型，由vector生成的类型必须包含vector中元素的类型，例如<code>vector&lt;int&gt;</code></strong></p>
-<p>vector能容纳绝大多数类型作为其元素，但是因为引用不是对象，所以<strong>不存在包含引用的vector</strong>。vector的元素也可以是vector，但在早期版本的C++标准中，必须在外层vector对象的右尖括号和其元素类型之间添加一个空格，即<code>vector&lt;vector&lt;int&gt; &gt;</code>;</p>
-<h3 id="3-3-1-定义和初始化vector对象"><a href="#3-3-1-定义和初始化vector对象" class="headerlink" title="3.3.1 定义和初始化vector对象"></a><strong>3.3.1 定义和初始化vector对象</strong></h3><p><img src="https://s2.ax1x.com/2020/01/23/1Vtlk9.jpg" alt></p>
-<center>初始化vector对象的方法</center>
-
-<h3 id="3-3-2-向vector对象中添加元素"><a href="#3-3-2-向vector对象中添加元素" class="headerlink" title="3.3.2 向vector对象中添加元素"></a><strong>3.3.2 向vector对象中添加元素</strong></h3><p>可以使用vector的成员函数其中添加元素：</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v2;</span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i != <span class="hljs-number">100</span>; i++)</span><br><span class="line">    v2.push_back(i);</span><br><span class="line"><span class="hljs-comment">// 循环结束后v2有100个元素，值从0到99</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><em>注意：</em></strong></p>
-<p><strong>范围for语句体内不应该改变其所遍历序列的大小</strong>，因此，如果循环体内部包含有向vector对象添加元素的语句，则不能使用范围for循环。</p>
-<h3 id="3-3-3-其他vector操作"><a href="#3-3-3-其他vector操作" class="headerlink" title="3.3.3 其他vector操作"></a><strong>3.3.3 其他vector操作</strong></h3><p><img src="https://s2.ax1x.com/2020/01/23/1VdwKP.jpg" alt></p>
-<center>vector支持的操作</center>
-
-<h4 id="不能用下标形式添加元素"><a href="#不能用下标形式添加元素" class="headerlink" title="不能用下标形式添加元素"></a><strong>不能用下标形式添加元素</strong></h4><p>vector对象（以及string对象）的下标运算符可用于访问已存在的元素，而不能用于添加元素。</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/23/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.3%E6%A0%87%E5%87%86%E5%BA%93%E7%B1%BB%E5%9E%8Bvector/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
