@@ -7,19 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>3.2 标准库类型string - Roger的博客</title>
+<title>3.4 标准库类型vector - Roger的博客</title>
 
 
-    <meta name="description" content="3.2.1 定义和初始化string对象 初始化string对象的方法">
+    <meta name="description" content="迭代器(iterator)是一种类型，用于访问容器中的元素或者在元素之间移动。所有的标准库容器都可以使用迭代器。string不属于容器类型，但也支持迭代器操作。 3.4.1 使用迭代器迭代器运算符 标准容器迭代器的运算符  begin和end运算符有迭代器的类型同时拥有返回迭代器的成员。比如，这些类型都有名为begin和end的成员，其中begin成员负责返回指向第一个元素（或第一个字符）的迭代器">
 <meta name="keywords" content="C++,C++Primer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.2 标准库类型string">
-<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;23&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%B8%89%E7%AB%A0&#x2F;3.2%E6%A0%87%E5%87%86%E5%BA%93%E7%B1%BB%E5%9E%8Bstring&#x2F;index.html">
+<meta property="og:title" content="3.4 标准库类型vector">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;23&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%B8%89%E7%AB%A0&#x2F;3.4%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%BB%8B%E7%BB%8D&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
-<meta property="og:description" content="3.2.1 定义和初始化string对象 初始化string对象的方法">
+<meta property="og:description" content="迭代器(iterator)是一种类型，用于访问容器中的元素或者在元素之间移动。所有的标准库容器都可以使用迭代器。string不属于容器类型，但也支持迭代器操作。 3.4.1 使用迭代器迭代器运算符 标准容器迭代器的运算符  begin和end运算符有迭代器的类型同时拥有返回迭代器的成员。比如，这些类型都有名为begin和end的成员，其中begin成员负责返回指向第一个元素（或第一个字符）的迭代器">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-01-23T12:15:42.007Z">
+<meta property="og:updated_time" content="2020-01-29T03:42:04.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -77,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="3.2 标准库类型string" height="28">
+                <img src="/images/logo.svg" alt="3.4 标准库类型vector" height="28">
             
             </a>
         </div>
@@ -126,7 +126,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-23T00:51:00.000Z">2020-01-23</time>
+                <time class="level-item has-text-grey" datetime="2020-01-23T00:59:00.000Z">2020-01-23</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
@@ -139,34 +139,27 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                3.2 标准库类型string
+                3.4 标准库类型vector
             
         </h1>
         <div class="content">
-            <h3 id="3-2-1-定义和初始化string对象"><a href="#3-2-1-定义和初始化string对象" class="headerlink" title="3.2.1 定义和初始化string对象"></a><strong>3.2.1 定义和初始化string对象</strong></h3><p><img src="https://s2.ax1x.com/2020/01/23/1EaXZD.jpg" alt></p>
-<center>初始化string对象的方法</center>
+            <p><strong>迭代器(iterator)</strong>是一种类型，用于访问容器中的元素或者在元素之间移动。所有的标准库容器都可以使用迭代器。string不属于容器类型，但也支持迭代器操作。</p>
+<h3 id="3-4-1-使用迭代器"><a href="#3-4-1-使用迭代器" class="headerlink" title="3.4.1 使用迭代器"></a><strong>3.4.1 使用迭代器</strong></h3><h4 id="迭代器运算符"><a href="#迭代器运算符" class="headerlink" title="迭代器运算符"></a>迭代器运算符</h4><p><img src="https://s2.ax1x.com/2020/01/28/1KhgLq.jpg" alt></p>
+<center>标准容器迭代器的运算符</center>
 
-<a id="more"></a>
+<h4 id="begin和end运算符"><a href="#begin和end运算符" class="headerlink" title="begin和end运算符"></a>begin和end运算符</h4><p>有迭代器的类型同时拥有返回迭代器的成员。比如，这些类型都有名为begin和end的成员，其中begin成员负责返回指向第一个元素（或第一个字符）的迭代器。end成员则负责返回指向容器（或string对象）“尾元素的下一个位置”的迭代器，这样的迭代器没有实际含义，仅是个标记。若容器为空，则begin和end返回的是同一个迭代器。</p>
+<p> begin和end返回的具体类型由对象是否是常量决定，如果对象是常量，begin和end返回const_iterator;若果对象不是常量，返回iterator。为了便于专门得到const_iterator类型的返回值，C++11新标准引入了两个新函数，分别是cbegin和cend。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;</span><br><span class="line"><span class="hljs-keyword">auto</span> it3 = v.cbegin(); <span class="hljs-comment">// it3的类型是vector&lt;int&gt;::const_iterator</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-2-2-string对象上的操作"><a href="#3-2-2-string对象上的操作" class="headerlink" title="3.2.2 string对象上的操作"></a><strong>3.2.2 string对象上的操作</strong></h3><p><img src="https://s2.ax1x.com/2020/01/23/1EdSJA.jpg" alt></p>
-<center>string上的操作</center>
+<h4 id="某些对vector对象的操作会使迭代器失效"><a href="#某些对vector对象的操作会使迭代器失效" class="headerlink" title="某些对vector对象的操作会使迭代器失效"></a>某些对vector对象的操作会使迭代器失效</h4><p>任何一种改变vector对象容量的操作，比如push_back，都会是该vector对象的迭代器失效。</p>
+<p><strong>谨记，但凡是使用了迭代器的循环体，都不要向迭代器所属的容器添加元素</strong></p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-built_in">text</span> = &#123;<span class="hljs-string">"某些对vector对象的操作会使迭代器失效"</span>,</span><br><span class="line">              <span class="hljs-string">"谨记，但凡是使用了迭代器的循环体，都不要向迭代器所属的容器添加元素"</span>&#125; ;</span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it = <span class="hljs-built_in">text</span>.cbegin(); it != <span class="hljs-built_in">text</span>.cend(); ++it)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">    <span class="hljs-built_in">text</span>.push_back(<span class="hljs-string">"比如，push_back"</span>);     <span class="hljs-comment">// 此步会使it失效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="字面值和string对象相加"><a href="#字面值和string对象相加" class="headerlink" title="字面值和string对象相加"></a><strong>字面值和string对象相加</strong></h4><p>当string对象和字符串字面值或者字符字面值相加时，其结果会转换为string对象。</p>
-<p>但是当把string对象和字符字面值及字符串字面值混在一条语句中使用时，必须确保加法运算符的两侧的运算符对象至少有一个是string。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">string</span> s4 = s1 + <span class="hljs-string">","</span>;              <span class="hljs-comment">// 正确</span></span><br><span class="line"><span class="hljs-built_in">string</span> s5 = <span class="hljs-string">"hello"</span> + <span class="hljs-string">","</span>;         <span class="hljs-comment">// 错误</span></span><br><span class="line"><span class="hljs-built_in">string</span> s6 = s1 + <span class="hljs-string">","</span> + <span class="hljs-string">"world"</span>;    <span class="hljs-comment">// 正确</span></span><br><span class="line"><span class="hljs-built_in">string</span> s7 = <span class="hljs-string">"hello"</span> + <span class="hljs-string">","</span> + s2;    <span class="hljs-comment">// 错误</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-4-2-迭代器运算"><a href="#3-4-2-迭代器运算" class="headerlink" title="3.4.2 迭代器运算"></a>3.4.2 迭代器运算</h3><p><img src="https://s2.ax1x.com/2020/01/29/1M4eGF.jpg" alt></p>
+<center>vector和string迭代器支持的的运算</center>
 
-<h3 id="3-2-3-处理string对象中的字符"><a href="#3-2-3-处理string对象中的字符" class="headerlink" title="3.2.3 处理string对象中的字符"></a><strong>3.2.3 处理string对象中的字符</strong></h3><h4 id="使用cctype头文件操作字符"><a href="#使用cctype头文件操作字符" class="headerlink" title="使用cctype头文件操作字符"></a><strong>使用cctype头文件操作字符</strong></h4><p><img src="https://s2.ax1x.com/2020/01/23/1VlGqA.jpg" alt></p>
-<center>cctype头文件中的函数</center>
-
-<h4 id="范围for语句"><a href="#范围for语句" class="headerlink" title="范围for语句"></a><strong>范围for语句</strong></h4><p>C++11新标准提供了一种新的语句：范围for语句。其语法形式是：</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span>(declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>expression</code>是一个对象，表示一个序列，<code>declaration</code>部分负责定义一个变量，该变量被用于访问序列中的基础元素。每次迭代，<code>declaration</code>部分的变量会被初始化为<code>expression</code>部分的下一个元素值。</p>
-<p>用法举例：</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 从键盘输入一个字符串，然后再依次输出字符串中每个字符，用空格隔开</span></span><br><span class="line"><span class="hljs-built_in">string</span> s1;</span><br><span class="line"><span class="hljs-built_in">cin</span> &gt;&gt; s1;</span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> c : s1)</span><br><span class="line">    <span class="hljs-built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="hljs-string">' '</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用范围for语句改变字符串中的字符"><a href="#使用范围for语句改变字符串中的字符" class="headerlink" title="使用范围for语句改变字符串中的字符"></a><strong>使用范围for语句改变字符串中的字符</strong></h4><p>如果想要改变string对象中字符的值，必须把循环变量定义成引用类型。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">s</span><span class="hljs-params">(<span class="hljs-string">"Hello World!!!"</span>)</span></span>;</span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;c : s)</span><br><span class="line">    c = <span class="hljs-built_in">toupper</span>(c);</span><br></pre></td></tr></table></figure>
+<p>一个利用迭代器运算实现二分查找的例子：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> sought = <span class="hljs-number">88</span>;</span><br><span class="line"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; num = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">12</span>, <span class="hljs-number">25</span>, <span class="hljs-number">34</span>, <span class="hljs-number">46</span>, <span class="hljs-number">72</span>, <span class="hljs-number">88</span>, <span class="hljs-number">91</span>&#125;;</span><br><span class="line"><span class="hljs-keyword">auto</span> beg = num.cbegin(), <span class="hljs-built_in">end</span> = num.cend();</span><br><span class="line"><span class="hljs-keyword">auto</span> mid = beg + (<span class="hljs-built_in">end</span> - beg)/<span class="hljs-number">2</span>;</span><br><span class="line"><span class="hljs-keyword">while</span>(*mid != sought)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(*mid &gt; sought)</span><br><span class="line">        <span class="hljs-built_in">end</span> = mid - <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">else</span></span><br><span class="line">        beg = mid + <span class="hljs-number">1</span>;</span><br><span class="line">    mid = beg + (<span class="hljs-built_in">end</span> - beg)/<span class="hljs-number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">cout</span> &lt;&lt; mid - num.cbegin() &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -226,16 +219,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/23/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.4%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%BB%8B%E7%BB%8D/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/23/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.3%E6%A0%87%E5%87%86%E5%BA%93%E7%B1%BB%E5%9E%8Bvector/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">3.4 标准库类型vector</span>
+                <span class="level-item">3.3 标准库类型vector</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/22/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/">
-                <span class="level-item">2.5 处理类型</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/23/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.2%E6%A0%87%E5%87%86%E5%BA%93%E7%B1%BB%E5%9E%8Bstring/">
+                <span class="level-item">3.2 标准库类型string</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -256,7 +249,7 @@
     var gitalk = new Gitalk({
         clientID: '9e93290747b3ddcef54b',
         clientSecret: '43c8e9ab8edaf50c3e4107e2be70fdf2ce71a294',
-        id: 'fdbb29a3f71c7e94bb95fecc2ab4dd21',
+        id: 'bef9a3e2892dbf20733d851199a16ac5',
         repo: 'roger-wyq.github.com',
         owner: 'roger-wyq',
         admin: "roger-wyq",
@@ -285,34 +278,26 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#3-2-1-定义和初始化string对象">
+        <a class="is-flex" href="#3-4-1-使用迭代器">
         <span class="has-mr-6">1</span>
-        <span>3.2.1 定义和初始化string对象</span>
-        </a></li><li>
-        <a class="is-flex" href="#3-2-2-string对象上的操作">
-        <span class="has-mr-6">2</span>
-        <span>3.2.2 string对象上的操作</span>
+        <span>3.4.1 使用迭代器</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#字面值和string对象相加">
-        <span class="has-mr-6">2.1</span>
-        <span>字面值和string对象相加</span>
+        <a class="is-flex" href="#迭代器运算符">
+        <span class="has-mr-6">1.1</span>
+        <span>迭代器运算符</span>
+        </a></li><li>
+        <a class="is-flex" href="#begin和end运算符">
+        <span class="has-mr-6">1.2</span>
+        <span>begin和end运算符</span>
+        </a></li><li>
+        <a class="is-flex" href="#某些对vector对象的操作会使迭代器失效">
+        <span class="has-mr-6">1.3</span>
+        <span>某些对vector对象的操作会使迭代器失效</span>
         </a></li></ul></li><li>
-        <a class="is-flex" href="#3-2-3-处理string对象中的字符">
-        <span class="has-mr-6">3</span>
-        <span>3.2.3 处理string对象中的字符</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#使用cctype头文件操作字符">
-        <span class="has-mr-6">3.1</span>
-        <span>使用cctype头文件操作字符</span>
-        </a></li><li>
-        <a class="is-flex" href="#范围for语句">
-        <span class="has-mr-6">3.2</span>
-        <span>范围for语句</span>
-        </a></li><li>
-        <a class="is-flex" href="#使用范围for语句改变字符串中的字符">
-        <span class="has-mr-6">3.3</span>
-        <span>使用范围for语句改变字符串中的字符</span>
-        </a></li></ul></li></ul>
+        <a class="is-flex" href="#3-4-2-迭代器运算">
+        <span class="has-mr-6">2</span>
+        <span>3.4.2 迭代器运算</span>
+        </a></li></ul>
             </div>
         </div>
     </div>
@@ -335,7 +320,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="3.2 标准库类型string" height="28">
+                    <img src="/images/logo.svg" alt="3.4 标准库类型vector" height="28">
                 
                 </a>
                 <p class="is-size-7">
