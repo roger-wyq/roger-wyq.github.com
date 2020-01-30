@@ -129,6 +129,67 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/">3.5 数组</a>
+            
+        </h1>
+        <div class="content">
+            <p>数组是一种类似于标准库类型vector的数据结构，与vector不同的是，数组大小确定不变，不能随意向数组中增加元素。</p>
+<h3 id="3-5-1-定义和初始化内置数组"><a href="#3-5-1-定义和初始化内置数组" class="headerlink" title="3.5.1 定义和初始化内置数组"></a><strong>3.5.1 定义和初始化内置数组</strong></h3><h4 id="显式初始化数组"><a href="#显式初始化数组" class="headerlink" title="显式初始化数组"></a><strong>显式初始化数组</strong></h4><p>数组的声明形如a[d]，其中a是数组名，d是数组的维数，即数组中元素的个数，因此必须大于零。数组的维数在编译时应该是已知的。也就是说，<strong>维度必须是一个常量表达式</strong>。</p>
+<p>数组的元素应为对象，因此不存在应用的数组。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">unsigned</span> sz = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> ial[sz] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;;      <span class="hljs-comment">// 含有三个元素0， 1， 2的数组；</span></span><br><span class="line"><span class="hljs-keyword">int</span> a2[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;;      	  <span class="hljs-comment">// 维度为3的数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> a3[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;;        <span class="hljs-comment">// 等价于a3[5] = &#123;0, 1, 2, 0, 0&#125;</span></span><br><span class="line"><span class="hljs-built_in">string</span> a4[<span class="hljs-number">3</span>] = &#123;<span class="hljs-string">"hi"</span>, <span class="hljs-string">"bye"</span>&#125;; <span class="hljs-comment">// 等价于a4[] = &#123;"hi", "bye", ""&#125;</span></span><br><span class="line"><span class="hljs-keyword">int</span> a[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;;	      <span class="hljs-comment">// 错误：初始值太多</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="不允许拷贝和赋值"><a href="#不允许拷贝和赋值" class="headerlink" title="不允许拷贝和赋值"></a><strong>不允许拷贝和赋值</strong></h4><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> a[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&#125;;</span><br><span class="line"><span class="hljs-keyword">int</span> a2[] = a;			<span class="hljs-comment">// 错误：不允许使用一个数组初始化另一个数组</span></span><br><span class="line">a2 = a;					<span class="hljs-comment">// 错误：不能把一个数组直接赋值给另一个数组</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>!!!一些编译器支持数组赋值，这就是所谓的<em>编译器拓展</em>。</strong>但一般来说，最好避免使用非标准特性。</p>
+<h4 id="理解复杂的数组声明"><a href="#理解复杂的数组声明" class="headerlink" title="理解复杂的数组声明"></a><strong>理解复杂的数组声明</strong></h4><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> *ptrs[<span class="hljs-number">10</span>];			  <span class="hljs-comment">// 含有10个整型指针的数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> &amp;refs[<span class="hljs-number">10</span>] = <span class="hljs-comment">/* ? */</span>;  <span class="hljs-comment">// 错误：不存在引用的数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> (*Parray)[<span class="hljs-number">10</span>] = &amp;arr; <span class="hljs-comment">// Parray指向一个含有10个整型的数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> (&amp;arrRef)[<span class="hljs-number">10</span>] = arr;  <span class="hljs-comment">// arrRef引用一个含有10个整型的数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> *(&amp;arry)[<span class="hljs-number">10</span>] = ptrs;  <span class="hljs-comment">// arry是数组的引用，该数组含有10个指针</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-3-指针和数组"><a href="#3-5-3-指针和数组" class="headerlink" title="3.5.3 指针和数组"></a><strong>3.5.3 指针和数组</strong></h3><p>在C++语言中，指针和数组有非常紧密的联系。</p>
+<p>在很多用到数组名字的地方，编译器都会自动将其替换为一个指向数组首元素的指针。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">string</span> nums[] = &#123;<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>&#125;;    <span class="hljs-comment">// 数组的元素是string对象</span></span><br><span class="line"><span class="hljs-built_in">string</span> *p = &amp;nums[<span class="hljs-number">0</span>];						<span class="hljs-comment">// p指向nums的第一个元素</span></span><br><span class="line"><span class="hljs-built_in">string</span> *p2 = nums; 						<span class="hljs-comment">// 等价于p2 = &amp;nums[0]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="指针也是迭代器"><a href="#指针也是迭代器" class="headerlink" title="指针也是迭代器"></a><strong>指针也是迭代器</strong></h4><p>vector和string的迭代器支持的运算，数组的指针全部支持。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> arr[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>&#125;;</span><br><span class="line"><span class="hljs-keyword">int</span> *p = arr;           <span class="hljs-comment">// p指向arr的第一个元素</span></span><br><span class="line">++p; 					<span class="hljs-comment">// p指向arr[1]</span></span><br><span class="line"><span class="hljs-keyword">int</span> *e = &amp;arr[<span class="hljs-number">10</span>];      <span class="hljs-comment">// 指向arr尾元素的下一个位置的指针</span></span><br><span class="line"><span class="hljs-comment">// 利用指针e作为循环控制变量，可以输出arr的全部元素</span></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> *b = arr; b != e; ++b)</span><br><span class="line">    <span class="hljs-built_in">cout</span> &lt;&lt; *b &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="标准库函数begin和end"><a href="#标准库函数begin和end" class="headerlink" title="标准库函数begin和end"></a><strong>标准库函数begin和end</strong></h4><p>数组不是类类型，因此这两个函数不是成员函数。正确的使用形式是将数组作为它们的参数。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> ia[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>&#125;;   <span class="hljs-comment">// ia是一个含有10个整数的数组</span></span><br><span class="line"><span class="hljs-keyword">int</span> *beg = <span class="hljs-built_in">begin</span>(ia); 						 <span class="hljs-comment">//</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-01-28T00:59:00.000Z">2020-01-28</time>
                 
                 <div class="level-item">
@@ -591,7 +652,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            17
+                            18
                         </p>
                     </a>
                 </div>
@@ -684,7 +745,7 @@
                 <span class="level-item">C++Primer笔记</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">9</span>
+                <span class="level-item tag">10</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%80%E7%AB%A0/">
@@ -700,7 +761,7 @@
                 <span class="level-item">第三章</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">
@@ -765,6 +826,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3.5 数组">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time></div>
+                    <a href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">3.5 数组</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -842,25 +922,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/21/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.4const%E9%99%90%E5%AE%9A%E7%AC%A6/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="2.4 const限定符">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-21T00:03:00.000Z">2020-01-21</time></div>
-                    <a href="/2020/01/21/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.4const%E9%99%90%E5%AE%9A%E7%AC%A6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">2.4 const限定符</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -878,7 +939,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -928,14 +989,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C/">
                         <span class="tag">C++</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C-Primer/">
                         <span class="tag">C++Primer</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
@@ -1047,6 +1108,25 @@
         
         <article class="media">
             
+            <a href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="3.5 数组">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time></div>
+                    <a href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/" class="title has-link-black-ter is-size-6 has-text-weight-normal">3.5 数组</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/01/28/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.4%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%BB%8B%E7%BB%8D/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="3.4 迭代器介绍">
@@ -1121,25 +1201,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/21/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.4const%E9%99%90%E5%AE%9A%E7%AC%A6/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="2.4 const限定符">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-21T00:03:00.000Z">2020-01-21</time></div>
-                    <a href="/2020/01/21/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.4const%E9%99%90%E5%AE%9A%E7%AC%A6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">2.4 const限定符</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1157,7 +1218,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1207,14 +1268,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C/">
                         <span class="tag">C++</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C-Primer/">
                         <span class="tag">C++Primer</span>
-                        <span class="tag is-grey">9</span>
+                        <span class="tag is-grey">10</span>
                     </a>
                 </div>
                 
