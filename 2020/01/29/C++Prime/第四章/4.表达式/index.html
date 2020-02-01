@@ -10,16 +10,16 @@
 <title>4 表达式 - Roger的博客</title>
 
 
-    <meta name="description" content="基础左值和右值C++的表达式要不然是右值(rvalue，读作”are-value“)，要不然就是左值(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。 求值顺序如果表达式指向并修改了同一个对 象，将会引发错误并产生未定义的行为。 例：&amp;lt;&amp;lt;运算符没有明确规定何时以及如何对运算对象求">
+    <meta name="description" content="基础左值和右值C++的表达式要不然是右值(rvalue，读作”are-value“)，要不然就是左值(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。">
 <meta name="keywords" content="C++,C++Primer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="4 表达式">
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;29&#x2F;C++Prime&#x2F;%E7%AC%AC%E5%9B%9B%E7%AB%A0&#x2F;4.%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
-<meta property="og:description" content="基础左值和右值C++的表达式要不然是右值(rvalue，读作”are-value“)，要不然就是左值(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。 求值顺序如果表达式指向并修改了同一个对 象，将会引发错误并产生未定义的行为。 例：&amp;lt;&amp;lt;运算符没有明确规定何时以及如何对运算对象求">
+<meta property="og:description" content="基础左值和右值C++的表达式要不然是右值(rvalue，读作”are-value“)，要不然就是左值(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-02-01T09:05:37.696Z">
+<meta property="og:updated_time" content="2020-02-01T09:07:29.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -144,6 +144,8 @@
         </h1>
         <div class="content">
             <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a><strong>基础</strong></h3><h4 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a><strong>左值和右值</strong></h4><p>C++的表达式要不然是<strong>右值</strong>(rvalue，读作”are-value“)，要不然就是<strong>左值</strong>(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。</p>
+<a id="more"></a>
+
 <h4 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a><strong>求值顺序</strong></h4><p>如果表达式指向并修改了同一个对 象，将会引发错误并产生未定义的行为。</p>
 <p>例：&lt;&lt;运算符没有明确规定何时以及如何对运算对象求值，因此下面的输出表达式是未定义的：</p>
 <figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 未定义的</span></span><br></pre></td></tr></table></figure>
