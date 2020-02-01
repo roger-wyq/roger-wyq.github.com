@@ -7,12 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 算法 - Roger的博客</title>
+<title>分类: 第四章 - Roger的博客</title>
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Roger的博客">
-<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;tags&#x2F;%E7%AE%97%E6%B3%95&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;categories&#x2F;C-Primer%E7%AC%94%E8%AE%B0&#x2F;%E7%AC%AC%E5%9B%9B%E7%AB%A0&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
@@ -115,8 +115,11 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">算法</a></li>
+            <li><a href="/categories">分类</a></li>
+            
+            <li><a href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">第四章</a></li>
         </ul>
         </nav>
     </div>
@@ -129,10 +132,10 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-08T02:24:09.000Z">2019-12-08</time>
+                <time class="level-item has-text-grey" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章</a>
                 </div>
                 
                 
@@ -142,262 +145,24 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/12/08/%E5%A0%86/">堆</a>
+                <a class="has-link-black-ter" href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/">4 表达式</a>
             
         </h1>
         <div class="content">
-            <p>这是一篇堆的模板。</p>
+            <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a><strong>基础</strong></h3><h4 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a><strong>左值和右值</strong></h4><p>C++的表达式要不然是<strong>右值</strong>(rvalue，读作”are-value“)，要不然就是<strong>左值</strong>(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。</p>
+<h4 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a><strong>求值顺序</strong></h4><p>如果表达式指向并修改了同一个对 象，将会引发错误并产生未定义的行为。</p>
+<p>例：&lt;&lt;运算符没有明确规定何时以及如何对运算对象求值，因此下面的输出表达式是未定义的：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 未定义的</span></span><br></pre></td></tr></table></figure>
+
+<p>有4种运算符明确规定了运算对象的求值顺序。分别是：<strong>逻辑与(&amp;&amp;)运算符，逻辑或(||)运算符，条件(?:)运算符和逗号(,)运算符</strong>。</p>
+<p>在形如<strong>f() + g() * h() + j()</strong>的表达式中，对于这些函数的调用顺序没有明确规定。</p>
+<p>以下两条经验准则对书写复合表达式有益：</p>
+<p><strong>1.拿不准的时候最好用括号来强制让表达式的组合关系符合程序逻辑的要求。</strong></p>
+<p><strong>2.如果改变了某个运算对象的值，在表达式的其他地方不要再使用这个运算对象。</strong></p>
+<h3 id="运算符优先级表"><a href="#运算符优先级表" class="headerlink" title="运算符优先级表"></a><strong>运算符优先级表</strong></h3><p><img src="https://s2.ax1x.com/2020/02/01/1G3H4P.jpg" alt></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/08/%E5%A0%86/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-26T13:35:09.000Z">2019-11-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="什么是并查集"><a href="#什么是并查集" class="headerlink" title="什么是并查集"></a><strong>什么是并查集</strong></h2><p>并查集，顾名思义，就是有合并和查询集合的功能。<br>这些功能是如何实现的呢？<br>我们可以将并查集看成一个树形结构，如果两个节点拥有共同的祖先表示他们在同一个集合中。这样，合并也就很好做了，合并两个集合时。只需要让其中一个的祖先成为另一个集合中某个节点的儿子，就完成了两个集合的合并。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/11/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-20T01:10:54.000Z">2019-11-20</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/20/Heapsort/">堆排序</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a><strong>什么是堆</strong></h3><blockquote>
-<p>堆是计算机科学中的一种特别的树状数据结构。若是满足以下特性，即可称为堆：“给定堆中任意节点P和C，若P是C的母节点，那么P的值会小于等于C的值”。若母节点的值恒小于等于子节点的值，此堆称为最小堆；反之，若母节点的值恒大于等于子节点的值，此堆称为最大堆. ——引用自<a href="https://zh.wikipedia.org/zh-cn/%E5%A0%86%E7%A9%8D" target="_blank" rel="noopener">维基百科</a></p>
-</blockquote>
-<p>在堆排序中，我们可以将堆看作是父节点的值恒大于等于（或小于等于）其子节点值的完全二叉树。</p>
-<h3 id="如何排序"><a href="#如何排序" class="headerlink" title="如何排序"></a><strong>如何排序</strong></h3>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/11/20/Heapsort/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-19T13:53:59.000Z">2019-11-19</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/19/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">广度优先搜索求连通块</a>
-            
-        </h1>
-        <div class="content">
-            <p>最近做了好多广搜的题，写个博客作为以后复习的模板，通时也是一种求连通块的方法。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h2><p>用广搜遍历图中的每一个点，在同一次搜索中能遍历到的点则在同一个连通块中（深搜是一样的）。</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a><strong>例题</strong></h2><p><a href="https://www.luogu.org/problem/P1141" target="_blank" rel="noopener">洛谷P1141 01迷宫</a></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/11/19/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-17T12:18:16.000Z">2019-11-17</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/17/LIS/">最长上升子序列的长度(nlogn)</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="lower-bound与upper-bound"><a href="#lower-bound与upper-bound" class="headerlink" title="lower_bound与upper_bound"></a>lower_bound与upper_bound</h2><p>这是C++STL中的两个函数<br>lower_bound找出序列中第一个<strong>大于等于</strong>x的函数(x是一个参数)。<br>upper_bound找出序列中第一个<strong>大于</strong>x的函数。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/11/17/LIS/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-07T15:00:53.000Z">2019-11-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/07/Mergesorttt/">归并排序</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>归并排序是利用分治思想的一种排序算法，该算法将一列数平均分为两份，然后将各自排好序和，再按照大小顺序合并成有序的列数，对于分开后小规模的的数列采用同样的思想，知道分成单个的数，这个时候每个数独自都是有序的，然后一层层合并，最终即可的得到有序的一列数；</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/11/07/Mergesorttt/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>

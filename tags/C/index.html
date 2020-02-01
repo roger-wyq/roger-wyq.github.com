@@ -132,6 +132,56 @@
                 <time class="level-item has-text-grey" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time>
                 
                 <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章</a>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/">4 表达式</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a><strong>基础</strong></h3><h4 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a><strong>左值和右值</strong></h4><p>C++的表达式要不然是<strong>右值</strong>(rvalue，读作”are-value“)，要不然就是<strong>左值</strong>(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。</p>
+<h4 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a><strong>求值顺序</strong></h4><p>如果表达式指向并修改了同一个对 象，将会引发错误并产生未定义的行为。</p>
+<p>例：&lt;&lt;运算符没有明确规定何时以及如何对运算对象求值，因此下面的输出表达式是未定义的：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 未定义的</span></span><br></pre></td></tr></table></figure>
+
+<p>有4种运算符明确规定了运算对象的求值顺序。分别是：<strong>逻辑与(&amp;&amp;)运算符，逻辑或(||)运算符，条件(?:)运算符和逗号(,)运算符</strong>。</p>
+<p>在形如<strong>f() + g() * h() + j()</strong>的表达式中，对于这些函数的调用顺序没有明确规定。</p>
+<p>以下两条经验准则对书写复合表达式有益：</p>
+<p><strong>1.拿不准的时候最好用括号来强制让表达式的组合关系符合程序逻辑的要求。</strong></p>
+<p><strong>2.如果改变了某个运算对象的值，在表达式的其他地方不要再使用这个运算对象。</strong></p>
+<h3 id="运算符优先级表"><a href="#运算符优先级表" class="headerlink" title="运算符优先级表"></a><strong>运算符优先级表</strong></h3><p><img src="https://s2.ax1x.com/2020/02/01/1G3H4P.jpg" alt></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time>
+                
+                <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
                 </div>
                 
@@ -685,7 +735,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            18
+                            19
                         </p>
                     </a>
                 </div>
@@ -697,7 +747,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            8
+                            9
                         </p>
                     </a>
                 </div>
@@ -778,7 +828,7 @@
                 <span class="level-item">C++Primer笔记</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">10</span>
+                <span class="level-item tag">11</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%80%E7%AB%A0/">
@@ -803,6 +853,14 @@
             </span>
             <span class="level-end">
                 <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+            <span class="level-start">
+                <span class="level-item">第四章</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Linux/">
@@ -859,6 +917,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="4 表达式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time></div>
+                    <a href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">4 表达式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -936,25 +1013,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/22/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="2.5 处理类型">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-22T00:58:00.000Z">2020-01-22</time></div>
-                    <a href="/2020/01/22/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">2.5 处理类型</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -972,7 +1030,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1022,14 +1080,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C/">
                         <span class="tag">C++</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C-Primer/">
                         <span class="tag">C++Primer</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -1141,6 +1199,25 @@
         
         <article class="media">
             
+            <a href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="4 表达式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time></div>
+                    <a href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">4 表达式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="3.5 数组">
@@ -1215,25 +1292,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/01/22/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="2.5 处理类型">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-01-22T00:58:00.000Z">2020-01-22</time></div>
-                    <a href="/2020/01/22/C++Prime/%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.5%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">2.5 处理类型</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a> / <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1251,7 +1309,7 @@
                     <span class="level-item">一月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1301,14 +1359,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C/">
                         <span class="tag">C++</span>
-                        <span class="tag is-grey">11</span>
+                        <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/C-Primer/">
                         <span class="tag">C++Primer</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
