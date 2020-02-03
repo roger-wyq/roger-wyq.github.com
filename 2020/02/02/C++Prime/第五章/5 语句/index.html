@@ -7,19 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>4 表达式 - Roger的博客</title>
+<title>5 语句 - Roger的博客</title>
 
 
-    <meta name="description" content="基础左值和右值C++的表达式要不然是右值(rvalue，读作”are-value“)，要不然就是左值(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。">
+    <meta name="description" content="空语句最简单的语句是空语句(null statement)，空语句中只含有一个单独的分号： 1;    &#x2F;&#x2F; 空语句">
 <meta name="keywords" content="C++,C++Primer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4 表达式">
-<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;01&#x2F;29&#x2F;C++Prime&#x2F;%E7%AC%AC%E5%9B%9B%E7%AB%A0&#x2F;4.%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;index.html">
+<meta property="og:title" content="5 语句">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;02&#x2F;02&#x2F;C++Prime&#x2F;%E7%AC%AC%E4%BA%94%E7%AB%A0&#x2F;5%20%E8%AF%AD%E5%8F%A5&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
-<meta property="og:description" content="基础左值和右值C++的表达式要不然是右值(rvalue，读作”are-value“)，要不然就是左值(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。">
+<meta property="og:description" content="空语句最简单的语句是空语句(null statement)，空语句中只含有一个单独的分号： 1;    &#x2F;&#x2F; 空语句">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-02-01T09:07:29.673Z">
+<meta property="og:updated_time" content="2020-02-03T01:26:59.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -77,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="4 表达式" height="28">
+                <img src="/images/logo.svg" alt="5 语句" height="28">
             
             </a>
         </div>
@@ -126,10 +126,10 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-29T03:50:00.000Z">2020-01-29</time>
+                <time class="level-item has-text-grey" datetime="2020-02-02T08:08:00.000Z">2020-02-02</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章</a>
+                <a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/">C++Primer笔记</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/C-Primer%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0/">第五章</a>
                 </div>
                 
                 
@@ -139,23 +139,43 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                4 表达式
+                5 语句
             
         </h1>
         <div class="content">
-            <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a><strong>基础</strong></h3><h4 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a><strong>左值和右值</strong></h4><p>C++的表达式要不然是<strong>右值</strong>(rvalue，读作”are-value“)，要不然就是<strong>左值</strong>(lvalue，读作”ell-value“)。当一个对象被用作右值的时候，用的是对象的值（内容）；当对象被用作左值的时候，用的是对象的身份(在内存中的位置)。</p>
+            <h3 id="空语句"><a href="#空语句" class="headerlink" title="空语句"></a><strong>空语句</strong></h3><p>最简单的语句是<strong>空语句(null statement)</strong>，空语句中只含有一个单独的分号：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;    <span class="hljs-comment">// 空语句</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h4 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a><strong>求值顺序</strong></h4><p>如果表达式指向并修改了同一个对 象，将会引发错误并产生未定义的行为。</p>
-<p>例：&lt;&lt;运算符没有明确规定何时以及如何对运算对象求值，因此下面的输出表达式是未定义的：</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; ++i &lt;&lt; <span class="hljs-built_in">endl</span>; <span class="hljs-comment">// 未定义的</span></span><br></pre></td></tr></table></figure>
+<h3 id="复合语句"><a href="#复合语句" class="headerlink" title="复合语句"></a><strong>复合语句</strong></h3><p><strong>复合语句(compound statement)</strong>是指用花括括起来的(可能为空的)语句和声明序列，复合语句也被称作<strong>块(block)</strong>。一个块就是一个作用域，在块中引入的名字只能在快的内部以及嵌套在块中的字块访问。</p>
+<h3 id="try语句和异常处理"><a href="#try语句和异常处理" class="headerlink" title="try语句和异常处理"></a><strong>try语句和异常处理</strong></h3><p>异常处理机制为程序中异常检测和异常处理这两部分的协作提供支持。在C++语言中，异常处理包括：</p>
+<ul>
+<li><p><strong>throw表达式(throw expression)</strong>，异常检测部分使用throw表达式来表示它遇到了无法处理的问题。我们说throw引发(raise)了异常。</p>
+</li>
+<li><p><strong>try语句块(try block)</strong>，异常处理部分使用try语句处理异常。try语句块以关键字try开始，并以一个或者多个<strong>catch子句(catch clause)</strong>结束。try语句块中代码抛出的异常通常会被某个catch子句处理。因为catch字句“处理”异常，所以他们也被称为<strong>异常处理代码(exception handler)</strong>。</p>
+</li>
+<li><p>一套<strong>异常类(exception class)</strong>，用于在throw表达式和相关catch字句之间传递异常的具体信息。</p>
+</li>
+</ul>
+<h4 id="throw表达式"><a href="#throw表达式" class="headerlink" title="throw表达式"></a><strong>throw表达式</strong></h4><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 首先检查两条数据是否是关于同一种书籍的</span></span><br><span class="line"><span class="hljs-keyword">if</span>(item1.isbn() != item2.isbn())</span><br><span class="line">    <span class="hljs-keyword">throw</span> runtime_error(<span class="hljs-string">"Data must refer to same ISBN"</span>);</span><br><span class="line"><span class="hljs-comment">// 如果程序执行到这里，表示两个ISBN是相同的</span></span><br><span class="line"><span class="hljs-built_in">cout</span> &lt;&lt; itme1 + itme2 &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br></pre></td></tr></table></figure>
 
-<p>有4种运算符明确规定了运算对象的求值顺序。分别是：<strong>逻辑与(&amp;&amp;)运算符，逻辑或(||)运算符，条件(?:)运算符和逗号(,)运算符</strong>。</p>
-<p>在形如<strong>f() + g() * h() + j()</strong>的表达式中，对于这些函数的调用顺序没有明确规定。</p>
-<p>以下两条经验准则对书写复合表达式有益：</p>
-<p><strong>1.拿不准的时候最好用括号来强制让表达式的组合关系符合程序逻辑的要求。</strong></p>
-<p><strong>2.如果改变了某个运算对象的值，在表达式的其他地方不要再使用这个运算对象。</strong></p>
-<h3 id="运算符优先级表"><a href="#运算符优先级表" class="headerlink" title="运算符优先级表"></a><strong>运算符优先级表</strong></h3><p><img src="https://s2.ax1x.com/2020/02/01/1G3H4P.jpg" alt></p>
+<p>在这段代码中，如果ISBN不一样就抛出一个异常，该异常是类型runtime_error的对象。抛出异常将终止当前函数，并把控制权转移给能处理该异常的代码。</p>
+<h4 id="try语句块"><a href="#try语句块" class="headerlink" title="try语句块"></a><strong>try语句块</strong></h4><p>代码样例：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">while</span>(<span class="hljs-built_in">cin</span> &gt;&gt; itme1 &gt;&gt; itme2)&#123;</span><br><span class="line">    <span class="hljs-keyword">try</span>&#123;</span><br><span class="line">        <span class="hljs-comment">// 执行添加两个Sales_itme对象的代码</span></span><br><span class="line">        <span class="hljs-comment">// 如果添加失败，代码抛出一个runtime_error异常</span></span><br><span class="line">    &#125;<span class="hljs-keyword">catch</span>(runtime_error err)&#123;</span><br><span class="line">        <span class="hljs-comment">// 提醒用户两个ISBN必须一致，询问是否重新输入</span></span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; err.what()</span><br><span class="line">             &lt;&lt; <span class="hljs-string">"\ntry Again? Enter y or n"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-keyword">char</span> c;</span><br><span class="line">        <span class="hljs-built_in">cin</span> &gt;&gt; c;</span><br><span class="line">        <span class="hljs-keyword">if</span>(!<span class="hljs-built_in">cin</span> || c == <span class="hljs-string">'n'</span>)</span><br><span class="line">            <span class="hljs-keyword">break</span>;   <span class="hljs-comment">// 跳出while循环</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="标准异常"><a href="#标准异常" class="headerlink" title="标准异常"></a><strong>标准异常</strong></h4><p>C++定义了一组类，用于报告标准库函数遇到的问题。这些异常类也可以在用户编写的程序中国使用，它们分别定义在4个头文件中。</p>
+<ul>
+<li><p>exception头文件定义了最通用的异常类exception。它只报告异常的发生，不提供任何额外信息。</p>
+</li>
+<li><p>stdexcept头文件定义了最常用的异常类，详细信息见下表。</p>
+</li>
+<li><p>new头文件定义了bad_alloc异常类型。</p>
+</li>
+<li><p>type_info头文件定义了bad_cast异常类型。</p>
+<p><img src="https://s2.ax1x.com/2020/02/03/1N2FfI.jpg" alt="1N2FfI.jpg"></p>
+</li>
+</ul>
 
         </div>
         
@@ -213,17 +233,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/02/C++Prime/%E7%AC%AC%E4%BA%94%E7%AB%A0/5%20%E8%AF%AD%E5%8F%A5/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">5 语句</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/29/C++Prime/%E7%AC%AC%E4%B8%89%E7%AB%A0/3.5%E6%95%B0%E7%BB%84/">
-                <span class="level-item">3.5 数组</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/29/C++Prime/%E7%AC%AC%E5%9B%9B%E7%AB%A0/4.%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                <span class="level-item">4 表达式</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -244,7 +257,7 @@
     var gitalk = new Gitalk({
         clientID: '9e93290747b3ddcef54b',
         clientSecret: '43c8e9ab8edaf50c3e4107e2be70fdf2ce71a294',
-        id: 'ed063d76a491f855706198dd827fd1f5',
+        id: '7c6dd4f0a9de21af06805f4045947f08',
         repo: 'roger-wyq.github.com',
         owner: 'roger-wyq',
         admin: "roger-wyq",
@@ -273,22 +286,30 @@
                     目录
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#基础">
+        <a class="is-flex" href="#空语句">
         <span class="has-mr-6">1</span>
-        <span>基础</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#左值和右值">
-        <span class="has-mr-6">1.1</span>
-        <span>左值和右值</span>
+        <span>空语句</span>
         </a></li><li>
-        <a class="is-flex" href="#求值顺序">
-        <span class="has-mr-6">1.2</span>
-        <span>求值顺序</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#运算符优先级表">
+        <a class="is-flex" href="#复合语句">
         <span class="has-mr-6">2</span>
-        <span>运算符优先级表</span>
-        </a></li></ul>
+        <span>复合语句</span>
+        </a></li><li>
+        <a class="is-flex" href="#try语句和异常处理">
+        <span class="has-mr-6">3</span>
+        <span>try语句和异常处理</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#throw表达式">
+        <span class="has-mr-6">3.1</span>
+        <span>throw表达式</span>
+        </a></li><li>
+        <a class="is-flex" href="#try语句块">
+        <span class="has-mr-6">3.2</span>
+        <span>try语句块</span>
+        </a></li><li>
+        <a class="is-flex" href="#标准异常">
+        <span class="has-mr-6">3.3</span>
+        <span>标准异常</span>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>
@@ -311,7 +332,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="4 表达式" height="28">
+                    <img src="/images/logo.svg" alt="5 语句" height="28">
                 
                 </a>
                 <p class="is-size-7">
