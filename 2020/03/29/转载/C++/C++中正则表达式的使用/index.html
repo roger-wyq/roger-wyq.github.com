@@ -7,16 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>转载/C++/C++中正则表达式的使用 - Roger的博客</title>
+<title>C++中正则表达式的使用 - Roger的博客</title>
 
 
-    <meta property="og:type" content="article">
-<meta property="og:title" content="转载&#x2F;C++&#x2F;C++中正则表达式的使用">
+    <meta name="description" content="总述正则是一种规则，它用来匹配（进而捕获、替换）字符串。这种规则需要“模式”、“字符串”这两样东西，“模式”根据正则规则，来处理“字符串”。 这种规则被许多语言支持，C++11以后才支持正则。 C++11支持的正则和其他语言支持的正则有区别，本篇记录的目的不在于讲解正则，也不在于阐述C++11支持的正则详细是什么，而是只记下常见的、够用的正则规则（以供速查，应有不严谨之处）及使用用法。">
+<meta name="keywords" content="C++,STL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++中正则表达式的使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;2020&#x2F;03&#x2F;29&#x2F;%E8%BD%AC%E8%BD%BD&#x2F;C++&#x2F;C++%E4%B8%AD%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="Roger的博客">
+<meta property="og:description" content="总述正则是一种规则，它用来匹配（进而捕获、替换）字符串。这种规则需要“模式”、“字符串”这两样东西，“模式”根据正则规则，来处理“字符串”。 这种规则被许多语言支持，C++11以后才支持正则。 C++11支持的正则和其他语言支持的正则有区别，本篇记录的目的不在于讲解正则，也不在于阐述C++11支持的正则详细是什么，而是只记下常见的、够用的正则规则（以供速查，应有不严谨之处）及使用用法。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-03-29T00:51:41.225Z">
+<meta property="og:updated_time" content="2020-03-29T02:04:28.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;blog.w-yq.top&#x2F;images&#x2F;og_image.png">
 
@@ -32,7 +35,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
 
 
     
@@ -74,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="转载/C++/C++中正则表达式的使用" height="28">
+                <img src="/images/logo.svg" alt="C++中正则表达式的使用" height="28">
             
             </a>
         </div>
@@ -99,6 +102,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
@@ -119,7 +126,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-29T00:51:41.225Z">2020-03-29</time>
+                <time class="level-item has-text-grey" datetime="2020-03-29T01:08:00.000Z">2020-03-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%B2%BE%E5%8D%8E/">转载精华</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E8%BD%AC%E8%BD%BD%E7%B2%BE%E5%8D%8E/C/">C++</a>
+                </div>
                 
                 
                 
@@ -128,11 +139,122 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                转载/C++/C++中正则表达式的使用
+                C++中正则表达式的使用
             
         </h1>
         <div class="content">
-            
+            <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a><strong>总述</strong></h1><p>正则是一种规则，它用来匹配（进而捕获、替换）字符串。这种规则需要“模式”、“字符串”这两样东西，“模式”根据正则规则，来处理“字符串”。</p>
+<p>这种规则被许多语言支持，C++11以后才支持正则。</p>
+<p>C++11支持的正则和其他语言支持的正则有区别，本篇记录的目的不在于讲解正则，也不在于阐述C++11支持的正则详细是什么，而是只记下常见的、够用的正则规则（<strong>以供速查</strong>，应有不严谨之处）及使用用法。</p>
+<a id="more"></a>
+
+<h1 id="ECMAScript支持的正则"><a href="#ECMAScript支持的正则" class="headerlink" title="ECMAScript支持的正则"></a><strong>ECMAScript支持的正则</strong></h1><p>正则由元字符和普通字符组成。普通字符就代表它原本的含义；元字符的意义不同于该字符本来的含义，而是有特殊的意义和功能。</p>
+<p>根据其意义功能划分，可将元字符划分为：</p>
+<h3 id="具有特殊意义的元字符"><a href="#具有特殊意义的元字符" class="headerlink" title="具有特殊意义的元字符"></a><strong>具有特殊意义的元字符</strong></h3><p><code>\</code>：<code>\字符</code>能够改变<code>字符</code>原本的含义 </p>
+<p><code>^</code>：<code>^字符</code>指示字符串的头，且要求字符串以<code>字符</code>开头，不占位。<code>\^</code>表示一个真正的^符号。  </p>
+<p><code>$</code>：<code>$字符</code>指示字符串的尾，且要求字符串以<code>字符</code>结尾，不占位。<code>\$</code>表示一个真正的$符号。  </p>
+<p><code>、()</code>：分组，大正则中包含小正则。可以改变默认的优先级。在模式中可以使用<code>\1</code>来表示第一组已然捕获到的东西。</p>
+<p><code>\b</code>：指示字符串的边界（头/尾/空格左/空格右），<code>字符\b</code>要求边界的左边是<code>字符</code>，<code>\b字符</code>要求边界的右边是<code>字符</code>。  </p>
+<p><code>.</code>：表示一个除了<code>\n</code>以外的任意一个字符。<code>\.</code>表示一个真正的.符号。 </p>
+<p><code>|</code>：<code>字符串1|字符串2</code>表示一个<strong>字符串</strong>，该字符串是字符串1、字符串2中的一个。<code>|</code>在正则中的优先级比较混乱，所以建议加上足够多的括号来分组。</p>
+<p><code>[]</code>：<code>[字符1字符2字符3...]</code>表示一个字符，该字符是字符1、字符2、字符3……中的某一个。中括号中出现的所有字符都是代表本身意思的字符（没有特殊含义），如<code>[.]</code>只能匹配<code>.</code>符号，而不能匹配任意符号。  </p>
+<p><code>[^字符1字符2字符3...]</code>表示一个字符，该字符不是字符1、字符2、字符3……中的任何一个  </p>
+<p><code>[a-z]</code>表示一个字符，该字符是a、b、c……z中的某一个  </p>
+<p><code>[^a-z]</code>表示一个字符，该字符不是a、b、c……z中的任何一个   </p>
+<p><code>\w</code>：表示一个字符，该字符是数字、字母、下划线中的某一个。等价于<code>[(0-9)(a-z)(A-Z)(_)]</code>    </p>
+<p><code>\W</code>：表示一个字符，该字符不是数字、字母、下划线中的任何一个。等价于[]  </p>
+<p><code>\d</code>表示一个字符，该字符是0、1、2……9中的某一个  </p>
+<p><code>\D</code>表示一个字符，该字符不是0、1、2……9中的任何一个  </p>
+<p><code>\s</code>表示一个字符，该字符是空白符（空格、制表符、换页符）2、代表出现次数的</p>
+<h3 id="量词元字符"><a href="#量词元字符" class="headerlink" title="量词元字符"></a><strong>量词元字符</strong></h3><p> <code>*</code>：<code>字符*</code>要求<code>字符</code>出现0到多次</p>
+<p> <code>+</code>：<code>字符+</code>要求<code>字符</code>出现1到多次</p>
+<p> <code>?</code>：<code>字符?</code>要求<code>字符</code>出现0次或1次</p>
+<p> <code>{n}</code>：<code>字符{n}</code>要求<code>字符</code>出现n次</p>
+<p> <code>{n,}</code>：<code>字符{n,}</code>要求<code>字符</code>出现n到多次</p>
+<p> <code>{n,m}</code>：<code>字符{n,m}</code>要求<code>字符</code>出现n到m次、</p>
+<h1 id="C-支持的正则"><a href="#C-支持的正则" class="headerlink" title="C++支持的正则"></a><strong>C++支持的正则</strong></h1><p>C++可以支持ECMAScript支持的正则，也可以支持grep支持的正则等等。</p>
+<p>由于我本人较熟悉ECMAScript支持的正则，且C++默认支持的即是它，所以我接下来讲的也是这种正则。</p>
+<p>首先要举一个例子解释一下，</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**在ECMAScript中写一个匹配11位电话号码的正则模式是这样写的**/</span></span><br><span class="line">var r = /\d&#123;<span class="hljs-number">1</span>, <span class="hljs-number">11</span>&#125;/;</span><br><span class="line"><span class="hljs-comment">/**在C++中写一个匹配11位电话号码的正则模式是这样写的**/</span></span><br><span class="line"><span class="hljs-function">regex <span class="hljs-title">r</span><span class="hljs-params">(<span class="hljs-string">"\\d&#123;1, 11&#125;"</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>看似不一样，其实是一样的，因为传递给regex构造函数的参数是一个字符串，该字符串被C++编译器解析时，将<code>\\</code>解释为真正的<code>\</code>（由于C++中的字符<code>\</code>是转义字符），解析出来的<code>\</code>和紧随其后的<code>d</code>组合，形成了真正的<code>\d</code>，表示一个数字字符。</p>
+<p>所以含有<code>\</code>的元字符，在C++定义时，都要写成<code>\\</code>。</p>
+<h1 id="C-使用正则"><a href="#C-使用正则" class="headerlink" title="C++使用正则"></a><strong>C++使用正则</strong></h1><h2 id="匹配与否"><a href="#匹配与否" class="headerlink" title="匹配与否"></a><strong>匹配与否</strong></h2><p>头文件<code>&lt;regex&gt;</code>中的<code>regex_match</code>和<code>regex_search</code>均可以进行匹配，返回一个布尔类型，匹配成功为true，匹配失败为false。</p>
+<p><strong>不同点：</strong>前者要求完全匹配，后者要求子串匹配即可；</p>
+<p>下面以<code>regex_match</code>为例，<code>regex_search</code>的写法与之相同，故不赘述。</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">string</span> str = <span class="hljs-string">"hhh233"</span>;</span><br><span class="line"><span class="hljs-function">regex <span class="hljs-title">r</span><span class="hljs-params">(<span class="hljs-string">"[a-z0-9]+"</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 用法一</span></span><br><span class="line"><span class="hljs-keyword">bool</span> flag = regex_match(str,r);</span><br><span class="line"><span class="hljs-comment">// 用法二</span></span><br><span class="line"><span class="hljs-keyword">bool</span> flag = regex_match(str,regex(<span class="hljs-string">"\\d+"</span>));</span><br><span class="line"><span class="hljs-comment">// 用法三</span></span><br><span class="line"><span class="hljs-keyword">bool</span> flag = regex_match(str.<span class="hljs-built_in">begin</span>()+<span class="hljs-number">7</span>,str.<span class="hljs-built_in">end</span>(),regex(<span class="hljs-string">"\\d+"</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a><strong>捕获</strong></h2><p>捕获就是先匹配，然后将匹配结果存储下来。捕获同样是使用上面介绍的那两个函数，仍然区分为整串匹配和子串匹配。</p>
+<p><strong>捕获的步骤：</strong></p>
+<ol>
+<li>模式中一般要有分组（因为捕捉的正是分组匹配的结果）</li>
+<li>定义一个STL容器smatch，用来保存捕捉的结果</li>
+<li>使用<code>reg_search</code>函数匹配，用<code>smatch</code>的实例存储匹配的结果，即完成捕捉。</li>
+<li>使用<code>m.size()</code>，查看捕捉到的个数；使用<code>m.str(i)</code>，查看捕捉到的字符串；【注意：<code>m.str(0)</code>一定是整个正则匹配到的部分，<code>m.str(1)</code>及以后才是分组捕获的结果】</li>
+<li><code>m.prefix().str()</code>获取整个匹配之前的字符串；<code>m.suffix().str()</code>获取整个匹配之后的字符串</li>
+</ol>
+<p><strong>代码：</strong></p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> str;</span><br><span class="line">    <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>)&#123;</span><br><span class="line">        <span class="hljs-built_in">cin</span> &gt;&gt; str;</span><br><span class="line">        <span class="hljs-function">regex <span class="hljs-title">e</span><span class="hljs-params">(<span class="hljs-string">"([[:w:]]+)@([[:w:]]+)\.com"</span>)</span></span>;</span><br><span class="line">        smatch m;</span><br><span class="line">        <span class="hljs-keyword">bool</span> found = regex_search(str, m, e);</span><br><span class="line">        <span class="hljs-keyword">if</span>(found)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m.size() "</span> &lt;&lt; m.<span class="hljs-built_in">size</span>() &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;m.<span class="hljs-built_in">size</span>(); ++i)&#123;</span><br><span class="line">                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m.str("</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">"): "</span> &lt;&lt; m.str(i) &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m.prefix().str(): "</span> &lt;&lt; m.prefix().str() &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"m.suffix().str(): "</span> &lt;&lt; m.suffix().str() &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Not Found"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果为：</p>
+<p><img src="https://s1.ax1x.com/2020/03/29/GEadKK.png" alt="GEadKK.png"></p>
+<p><img src="https://s1.ax1x.com/2020/03/29/GEas5d.png" alt="GEas5d.png"></p>
+<p><strong>补充：</strong></p>
+<ol>
+<li>获取第i个匹配<code>m.str(i)</code>，还有其他等价写法：<code>m[i].str()</code>、<code>*(m.begin() + i)</code></li>
+<li>模式其实可以不分组…这样就只有<code>m.str(0)</code>捕捉到整个串，没有<code>m.str(1)</code>其他的了。</li>
+</ol>
+<h4 id="更高级的捕捉"><a href="#更高级的捕捉" class="headerlink" title="更高级的捕捉"></a>更高级的捕捉</h4><p>由于<strong><code>regex_replace</code>方法只能捕捉到第一个匹配</strong>，想要捕捉到每一个匹配，以及匹配内的分组，需要使用另外一种方法：</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>正则内有分组</li>
+<li>定义迭代器的同时初始化迭代器，使其指向一个<code>smatch</code>实例的数组。</li>
+<li>定义<code>end</code>，标志<code>smatch</code>实例的数组的末尾</li>
+<li>使用迭代器遍历数组</li>
+</ol>
+<p><strong>代码：</strong></p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> str = <span class="hljs-string">"boo@gmail.com  boqian@hotmail.com bo_qian@163.com"</span>;</span><br><span class="line">    <span class="hljs-function">regex <span class="hljs-title">e</span><span class="hljs-params">(<span class="hljs-string">"([[:w:]]+)@([[:w:]]+)\.com"</span>)</span></span>;</span><br><span class="line">    <span class="hljs-function">sregex_iterator <span class="hljs-title">pos</span><span class="hljs-params">(str.cbegin(), str.cend(), e)</span></span>;</span><br><span class="line">    sregex_iterator <span class="hljs-built_in">end</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">for</span>(; pos!=<span class="hljs-built_in">end</span>; ++pos)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Matched: "</span> &lt;&lt; pos-&gt;str(<span class="hljs-number">0</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"user name: "</span> &lt;&lt; pos-&gt;str(<span class="hljs-number">1</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"domain: "</span> &lt;&lt; pos-&gt;str(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>补充：</strong></p>
+<ol>
+<li><p>同上，模式中也可以没有分组，这样也就没有<code>pos-&gt;str(1)</code>其他的了。</p>
+</li>
+<li><p>还有一种更高级的捕捉，能够实现一模一样的功能，只是对捕获的结果的组织顺序不相同，它将所有与第一个分组匹配的结果，放在一个容器内。</p>
+<p>运行如下代码，感受一下：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> str = <span class="hljs-string">"boo@gmail.com  boqian@hotmail.com bo_qian@163.com"</span>;</span><br><span class="line">    <span class="hljs-function">regex <span class="hljs-title">e</span><span class="hljs-params">(<span class="hljs-string">"([[:w:]]+)@([[:w:]]+)\.com"</span>)</span></span>;</span><br><span class="line">    <span class="hljs-function">sregex_token_iterator <span class="hljs-title">pos</span><span class="hljs-params">(str.cbegin(), str.cend(), e, <span class="hljs-number">1</span>)</span></span>;<span class="hljs-comment">// 表示第一个分组，再换成0、2、-1感受一下</span></span><br><span class="line">    sregex_token_iterator <span class="hljs-built_in">end</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">for</span>(; pos!=<span class="hljs-built_in">end</span>; ++pos)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Matched: "</span> &lt;&lt; pos-&gt;str() &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="捕捉的同时生成新串"><a href="#捕捉的同时生成新串" class="headerlink" title="捕捉的同时生成新串"></a><strong>捕捉的同时生成新串</strong></h2><p><code>regex_replace</code>方法先完成捕捉，得到类似于：</p>
+<p>大匹配1：分组1、分组2<br>大匹配2：分组1、分组2<br>大匹配3：分组1、分组2<br>…</p>
+<p>所以如下代码：</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">string</span> str = <span class="hljs-string">"boo@gmail.com  boqian@hotmail.com bo_qian@163.com"</span>;</span><br><span class="line">    <span class="hljs-function">regex <span class="hljs-title">e</span><span class="hljs-params">(<span class="hljs-string">"([[:w:]]+)@([[:w:]]+)\.com"</span>)</span></span>;</span><br><span class="line">    <span class="hljs-built_in">cout</span> &lt;&lt; regex_replace(str, e, <span class="hljs-string">"$1 is on $2\n"</span>, regex_constants::format_no_copy); <span class="hljs-comment">// 除了捕捉到的组以外，其他的东西均舍弃</span></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://s1.ax1x.com/2020/03/29/GEa2xP.png" alt="GEa2xP.png"></p>
+<p><strong>补充：</strong></p>
+<ol>
+<li><p><code>regex_replace</code>除了<code>regex_constants::format_no_copy</code>以外，还有其他flag，如<code>regex_constants::format_first_only</code>表示只取“大匹配1”，而忽略其他。</p>
+</li>
+<li><p>flag和flag之间通过<code>|</code>相连接。</p>
+</li>
+<li><p><code>regex_match</code>和<code>regex_search</code>也有自己的flag，如用于忽略英文字母大小写的<code>regex_constants::icase</code></p>
+</li>
+</ol>
+<h1 id="转载说明"><a href="#转载说明" class="headerlink" title="转载说明"></a><strong>转载说明</strong></h1><p>本文转载自github@HesseSummer；</p>
+<p>原文链接：<a href="https://github.com/HesseSummer/cspSolution/blob/master/C%2B%2B知识/正则.md" target="_blank" rel="noopener">https://github.com/HesseSummer/cspSolution/blob/master/C%2B%2B知识/正则.md</a></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C++</a>, <a class="has-link-grey -link" href="/tags/STL/" rel="tag">STL</a>
+                </div>
+            </div>
         </div>
         
         
@@ -225,6 +347,58 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    目录
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#总述">
+        <span class="has-mr-6">1</span>
+        <span>总述</span>
+        </a></li><li>
+        <a class="is-flex" href="#ECMAScript支持的正则">
+        <span class="has-mr-6">2</span>
+        <span>ECMAScript支持的正则</span>
+        </a><ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#具有特殊意义的元字符">
+        <span class="has-mr-6">2.1.1</span>
+        <span>具有特殊意义的元字符</span>
+        </a></li><li>
+        <a class="is-flex" href="#量词元字符">
+        <span class="has-mr-6">2.1.2</span>
+        <span>量词元字符</span>
+        </a></li></ul></ul></li><li>
+        <a class="is-flex" href="#C-支持的正则">
+        <span class="has-mr-6">3</span>
+        <span>C++支持的正则</span>
+        </a></li><li>
+        <a class="is-flex" href="#C-使用正则">
+        <span class="has-mr-6">4</span>
+        <span>C++使用正则</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#匹配与否">
+        <span class="has-mr-6">4.1</span>
+        <span>匹配与否</span>
+        </a></li><li>
+        <a class="is-flex" href="#捕获">
+        <span class="has-mr-6">4.2</span>
+        <span>捕获</span>
+        </a></li><li>
+        <a class="is-flex" href="#捕捉的同时生成新串">
+        <span class="has-mr-6">4.3</span>
+        <span>捕捉的同时生成新串</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#转载说明">
+        <span class="has-mr-6">5</span>
+        <span>转载说明</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
     
         <div class="column-right-shadow is-hidden-widescreen is-sticky">
@@ -243,7 +417,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="转载/C++/C++中正则表达式的使用" height="28">
+                    <img src="/images/logo.svg" alt="C++中正则表达式的使用" height="28">
                 
                 </a>
                 <p class="is-size-7">
