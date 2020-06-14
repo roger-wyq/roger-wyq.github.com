@@ -20,16 +20,8 @@ textarea {
     max-width: 960px;
     width: 960px;
   }
-  .is-3-column .container {
-    max-width: 1216px;
-    width: 1216px;
-  }
 }
 @media screen and (min-width: 1472px) {
-  .is-3-column .container {
-    max-width: 1344px;
-    width: 1344px;
-  }
   .is-2-column .container {
     max-width: 1152px;
     width: 1152px;
@@ -210,7 +202,6 @@ img.thumbnail {
 }
 .article .content {
   font-size: 1.1rem;
-  letter-spacing: 0.08rem;
 }
 .article .content blockquote.pullquote {
   float: right;
@@ -382,27 +373,21 @@ img.thumbnail {
 .content h5,
 .content h6 {
   font-weight: 400;
-  font-weight: blod;
 }
 .content h1 {
   font-size: 1.75em;
-  font-weight: blod;
 }
 .content h2 {
   font-size: 1.5em;
-  font-weight: blod;
 }
 .content h3 {
   font-size: 1.25em;
-  font-weight: blod;
 }
 .content h4 {
   font-size: 1.125em;
-  font-weight: blod;
 }
 .content h5 {
   font-size: 1em;
-  font-weight: blod;
 }
 .content code,
 .content pre {
@@ -410,11 +395,8 @@ img.thumbnail {
   font-family: "Source Code Pro", monospace, "Microsoft YaHei";
 }
 .content code {
-/*color: hsl(348, 100%, 61%)
-        background: transparent
-        padding: 0*/
-  color: #5e81ac;
-  background: #eceff4;
+  color: #ff3860;
+  background: transparent;
   padding: 0;
 }
 .content blockquote footer strong + cite {
